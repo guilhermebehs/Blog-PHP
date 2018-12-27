@@ -6,6 +6,7 @@ table, th, td {
 </style>
  <body onkeypress="if(event.keyCode == 13) validarDados()">
   <form method="POST" action="/controller/ValidarLogin.php" name="formulario" id="formulario">
+  	
    <table>
       <tr>
       Email: <input type="text" name="email" id="email"/> 
