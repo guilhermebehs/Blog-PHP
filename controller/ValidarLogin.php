@@ -18,7 +18,12 @@ if($_POST['email'] && $_POST['senha']){
     	$rs->bindParam(2, $senha);
     	$rs->execute();
         if($rs->rowCount() > 0){
-           echo "Login efetuado com sucesso!";
+           session_start();
+           $row = $rs->fetch();
+           $_SESSION['id'] = $row['id'] ;
+           $_SESSION['nome'] = $row['nome'] ;
+           $_SESSION['email'] = $row['email'];	
+           header('Location: /home.php');
         }
         else
            echo "Falha no login!";	

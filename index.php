@@ -5,6 +5,13 @@ table, th, td {
   }
 </style>
  <body onkeypress="if(event.keyCode == 13) validarDados()">
+  <?php
+  	 session_start();
+  	 if(isset($_SESSION['id']))
+  	    header('Location: /home.php');
+
+  	 	  	?>
+  	 	  		
   <form method="POST" action="/controller/ValidarLogin.php" name="formulario" id="formulario">
   	
    <table>
