@@ -15,7 +15,9 @@ table, th, td {
    <th>Conteúdo</th>
    <th>Data Criação</th>
  	<?php
-     session_start();
+      session_start();
+      if(!isset($_SESSION['id']))
+        header('Location: /index.php');
 	$servername = "localhost";
 	$username = "root";
 	$password = "210393";
@@ -45,6 +47,10 @@ table, th, td {
 ?>
      
     </table>
-   
+   <div align="left" style="margin-top: 5%">
+    <form method="GET" action="/criarpostagem.php">
+    <input type="submit" value="Nova Postagem">
+    </form>
+  </div>
  </body>
 </html>
