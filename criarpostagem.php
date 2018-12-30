@@ -15,14 +15,22 @@ table, th, td {
   <form method="POST" action="/controller/CriarPostagem.php" name="formulario" id="formulario">
   	
   
-      Título: <input type="text" name="titulo" id="titulo"/> <br/> 
-      Conteúdo:  <textarea name="conteudo" rows="4" cols="50" ></textarea> <br/>  
-      <input type="submit" value="Entrar"> <br/>
+      Título:<br/> <input type="text" name="titulo" id="titulo"/> <br/> 
+      Conteúdo:<br/><textarea id="conteudo" name="conteudo" rows="4" cols="50" ></textarea> <br/>  
+      <input type="button" value="Entrar" onclick="validarDados()"> <br/>
    </form>
    <script>
      function validarDados(){
   
-         form.submit();
+         var titulo = document.getElementById('titulo').value;
+         var conteudo = document.getElementById('conteudo').value;
+         var form = document.getElementById('formulario')
+         
+         if(titulo.trim() == '' || conteudo.trim() == '')
+            window.alert('Um ou mais campos em branco!');
+         else
+            form.submit();
+
 
      }
    </script>

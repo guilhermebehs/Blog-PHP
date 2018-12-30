@@ -12,7 +12,6 @@ table, th, td {
   </div> 	
    <table>
    <th>Título</th>
-   <th>Conteúdo</th>
    <th>Data Criação</th>
  	<?php
       session_start();
@@ -25,7 +24,7 @@ table, th, td {
 	{
     	$conn = new PDO("mysql:host=$servername;dbname=estudo", $username, $password);
     	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	$sql = "SELECT * FROM postagem where id_usuario = ?";
+    	$sql = "SELECT id,titulo, data_criacao FROM postagem where id_usuario = ?";
     	$rs = $conn->prepare($sql);
     	$rs->bindParam(1, $_SESSION["id"]);
 
@@ -34,7 +33,7 @@ table, th, td {
           $i = 0;
           while($i < $rs->rowCount()){ 	
                 $row = $rs->fetch();
-        		echo "<tr><td>".$row["titulo"]."</td><td>".$row["conteudo"]."<td>".$row["data_criacao"]."</td></tr>";
+        		echo "<tr><td><a href='/postagem.php?id=".$row["id"]."'>".$row["titulo"]."</a>"."</td><td>".$row["data_criacao"]."</td></tr>";
         		$i++;
    		 }}
         
