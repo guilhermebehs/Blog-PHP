@@ -22,8 +22,13 @@ table, th, td {
       $rs->execute();
         if($rs->rowCount() > 0){
             $row = $rs->fetch();
-            echo "Título:". $row['titulo']. "<br/>";
-            echo "COnteúdo:". $row['conteudo']. "<br/>";  
+            echo "<div style='border-style:solid; border-width:5px; width:50%;'>"; 
+            echo " <div align=center style='margin:5px;'>".$row['titulo']."</div>";
+            echo "</div>";
+            echo "<div style='border-style:solid; border-width:5px; width:50%;'>";
+            echo " <p>".$row['conteudo']."</p>";
+            echo "</div>";
+              
        }}
         
   catch(PDOException $e)
