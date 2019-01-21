@@ -7,12 +7,12 @@ if($_POST['email'] && $_POST['senha']){
 	$senha = $_POST['senha'];
 	$servername = "localhost";
 	$username = "root";
-	$password = "210393";
+	$password = "";
 	try 
 	{
     	$conn = new PDO("mysql:host=$servername;dbname=estudo", $username, $password);
     	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	$sql = "SELECT * FROM cliente where email=? and senha = ?";
+    	$sql = "SELECT * FROM usuario where email=? and senha = ?";
     	$rs = $conn->prepare($sql);
     	$rs->bindParam(1, $email);
     	$rs->bindParam(2, $senha);
