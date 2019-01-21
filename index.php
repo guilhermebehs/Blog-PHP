@@ -26,6 +26,8 @@ table, th, td {
       </tr>
     </table>
    </form>
+    
+     <a href='/criarusuario.php'>Criar Login</a>
    <script>
      function validarDados(){
          
